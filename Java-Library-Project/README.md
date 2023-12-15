@@ -3,11 +3,11 @@
 - [View on Herkoku](https://spring-thymeleaf-library.herokuapp.com/login)
 
 - Login as Admin 
-username: merve
+username: rahman
 password: test123
 
 - Login as User
-username: bilal
+username: ksenia
 password: test123
 
 ## Application features:
