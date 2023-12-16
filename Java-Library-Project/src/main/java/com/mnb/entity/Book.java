@@ -23,6 +23,8 @@ public class Book {
     String serialName;
     @Column(name = "BOOKS_AUTHOR")
     String booksAuthor;
+    @Column(name = "BOOKS_PERSON")
+    String booksPerson;
     @Column(name = "BOOKS_PUBLISHER")
     String booksPublisher;
     @Column(name = "DESCRIPTION")
@@ -33,6 +35,10 @@ public class Book {
     @JoinColumn(name = "AUTHOR_ID")
     Author author;
 
+    @ManyToOne(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.PERSIST,CascadeType.REFRESH})
+    @JoinColumn(name = "PERSON_ID")
+    private
+    Person person;
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "publisher_id")
     private Publisher publisher;
@@ -91,6 +97,14 @@ public class Book {
 
     public void setBooksAuthor(String booksAuthor) {
         this.booksAuthor = booksAuthor;
+    }
+
+    public String getBooksPerson() {
+        return booksPerson;
+    }
+
+    public void setBooksPerson(String booksPerson) {
+        this.booksPerson = booksPerson;
     }
 
     public String getBooksPublisher() {
