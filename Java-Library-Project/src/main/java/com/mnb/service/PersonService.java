@@ -9,14 +9,14 @@ import java.util.Optional;
 public interface PersonService {
     public List<Person> findAll();
 
-    public Person findById(int theId);
+    public Person findByPersonId(int thesPersonId);
 
     public void save(Person thePerson);
 
-    public void deleteById(int theId);
+    public void deleteByPersonId(int thePersonId);
 
 
-    Optional<Person> getPerson(Integer personId);
+    Optional<Person> getPersonId(Integer PersonId);
 
     void addBook(Person person, Book book);
 }

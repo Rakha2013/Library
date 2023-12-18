@@ -23,7 +23,12 @@
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
-            <th>Person Name</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Birthday</th>
+            <th>Country</th>
+            <th>Email</th>
             <th>Action</th>
         </tr>
         </thead>
@@ -39,14 +44,14 @@
             <td>
                 <div sec:authorize="hasAnyRole('USER', 'ADMIN')">
                 <!-- Add "update" button/link -->
-                <a th:href="@{/person/showFormForUpdate(personId=${tempPerson.id})}"
+                <a th:href="@{/person/showFormForUpdate(personId=${tempPerson.PersonId})}"
                    class="btn btn-info btn-sm">
                     Update
                 </a>
                 </div>
                 <div sec:authorize="hasRole('ADMIN')">
                 <!-- Add "delete" button/link -->
-                <a th:href="@{/person/delete(personId=${tempPerson.id})}"
+                <a th:href="@{/person/delete(personId=${tempPerson.PersonId})}"
                    class="btn btn-danger btn-sm"
                    onclick="if (!(confirm('Are you sure you want to delete this person?'))) return false">
                     Delete

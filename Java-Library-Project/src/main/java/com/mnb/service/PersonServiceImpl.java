@@ -24,15 +24,15 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Override
-    public Person findById(int theId) {
-        Optional<Person> result = personRepository.findById(theId);
+    public Person findByPersonId(int thePersonId) {
+        Optional<Person> result = personRepository.findById(thePersonId);
         Person thePerson = null;
         if (result.isPresent()) {
             thePerson = result.get();
         }
         else {
             // we didn't find the book
-            throw new RuntimeException("Did not find person id - " + theId);
+            throw new RuntimeException("Did not find person id - " + thePersonId);
         }
         return thePerson;
     }
@@ -43,17 +43,17 @@ public class PersonServiceImpl implements PersonService{
     }
 
     @Override
-    public void deleteById(int theId) {
-        personRepository.deleteById(theId);
+    public void deleteByPersonId(int thePersonId) {
+        personRepository.deleteById(thePersonId);
     }
 
     @Override
     public void addBook(Person person, Book book) {
-        if( personRepository.findById(person.getId()).isPresent())
-            personRepository.findById(person.getId()).get().getBooksList().add(book);
+        if( personRepository.findById(person.getPersonId()).isPresent())
+            personRepository.findById(person.getPersonId()).get().getBooksList().add(book);
     }
     @Override
-    public Optional<Person> getPerson(Integer personId) {
-        return personRepository.findById(personId);
+    public Optional<Person> getPersonId(Integer PersonId) {
+        return personRepository.findById(PersonId);
     }
 }

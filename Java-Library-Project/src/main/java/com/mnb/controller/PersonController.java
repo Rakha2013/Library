@@ -48,9 +48,9 @@ public class PersonController {
 
 
     @GetMapping("/showFormForUpdate")
-    public String showFormForUpdate(@RequestParam("personId") int theID, Model theModel) {
+    public String showFormForUpdate(@RequestParam("personId") int thePersonId, Model theModel) {
         //get the person from the service
-        Person thePerson = personService.findById(theID);
+        Person thePerson = personService.findByPersonId(thePersonId);
         //set author as a model attribute to pre-populate the form
         theModel.addAttribute("persons", thePerson);
         return "person-form";
@@ -64,9 +64,9 @@ public class PersonController {
     }
 
     @GetMapping("/delete")
-    public String delete(@RequestParam("personId") int theId) {
+    public String delete(@RequestParam("PersonId") int thePersonId) {
         // delete the author
-        personService.deleteById(theId);
+        personService.deleteByPersonId(thePersonId);
         // redirect to /person/list
         return "redirect:/person/list";
     }

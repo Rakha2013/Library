@@ -15,9 +15,9 @@ import java.util.List;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "Person_ID")
     private
-    Integer id;
+    Integer PersonId;
     @Column(name = "FIRST_NAME")
     private
     String FirstName;
@@ -54,11 +54,11 @@ public class Person {
         tempBook.setPerson(this);
 
     }
-    public void setId(Integer id) {
-        this.id = id;
+    public void setPersonId(Integer PersonId) {
+        this.PersonId = PersonId;
     }
-    public Integer getId() {
-        return id;
+    public Integer getPersonId() {
+        return PersonId;
     }
 
     public void setFirstName(String FirstName) {
