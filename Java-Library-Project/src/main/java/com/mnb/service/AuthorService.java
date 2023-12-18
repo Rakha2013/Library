@@ -9,11 +9,11 @@ import java.util.Optional;
 public interface AuthorService {
     public List<Author> findAll();
 
-    public Author findById(int theId);
+    public Author findByAuthorId(int theAuthorId);
 
     public void save(Author theAuthor);
 
-    public void deleteById(int theId);
+    public void deleteByAuthorId(int theAuthorId);
 
     public void addBook(Author author, Book book);
 

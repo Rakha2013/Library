@@ -50,7 +50,7 @@ public class AuthorController {
     @GetMapping("/showFormForUpdate")
     public String showFormForUpdate(@RequestParam("authorId") int theID, Model theModel) {
         //get the author from the service
-        Author theAuthor = authorService.findById(theID);
+        Author theAuthor = authorService.findByAuthorId(theID);
         //set author as a model attribute to pre-populate the form
         theModel.addAttribute("authors", theAuthor);
         return "author-form";
@@ -64,9 +64,9 @@ public class AuthorController {
     }
 
     @GetMapping("/delete")
-    public String delete(@RequestParam("authorId") int theId) {
+    public String delete(@RequestParam("authorId") int AuthorId) {
         // delete the author
-        authorService.deleteById(theId);
+        authorService.deleteByAuthorId(AuthorId);
         // redirect to /author/list
         return "redirect:/author/list";
     }

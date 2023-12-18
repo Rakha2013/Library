@@ -15,12 +15,10 @@ import java.util.List;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    Integer id;
-    @Column(name = "AUTHOR_NAME")
-    String authorName;
-    @Column(name = "DESCRIPTION")
-    String description;
+    @Column(name = "AUTHOR_ID")
+    Integer AuthorId;
+    @Column(name = "PERSON_ID")
+    Integer PersonId;
     @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "author",
             cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
@@ -36,29 +34,20 @@ public class Author {
 
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getAuthorId() {
+        return AuthorId;
+    }
+    public void setAuthorId(Integer AuthorId) {
+        this.AuthorId = AuthorId;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setAPersonId(Integer PersonId) {
+        this.PersonId = PersonId;
+    }
+    public Integer getPersonId() {
+        return PersonId;
     }
 
-    public String getAuthorName() {
-        return authorName;
-    }
-
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public List<Book> getBooksList() {
         return booksList;

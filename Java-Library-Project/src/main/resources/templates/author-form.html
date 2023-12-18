@@ -21,11 +21,11 @@
     <form action="#" th:action="@{/author/save}"
           th:object="${authors}" method="POST">
         <!-- Add hidden form field to handle update -->
-        <input type="hidden" th:field="*{id}" />
-        <input type="text" th:field="*{authorName}"
-               class="form-control mb-4 col-4" placeholder="Author name">
-        <input type="text" th:field="*{description}"
-               class="form-control mb-4 col-4" placeholder="Description">
+        <input type="hidden" th:field="*{AuthorID}" />
+        <input type="text" th:field="*{AuthorID}"
+               class="form-control mb-4 col-4" placeholder="Author ID">
+        <input type="text" th:field="*{PersonID}"
+               class="form-control mb-4 col-4" placeholder="PersonID">
         <button type="submit" class="btn btn-info col-2">Save</button>
     </form>
     <hr>

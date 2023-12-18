@@ -23,27 +23,27 @@
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
-            <th>Author Name</th>
-            <th>Description</th>
+            <th>Author ID</th>
+            <th>Person ID</th>
             <th>Action</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="tempAuthor : ${authors}">
 
-            <td th:text="${tempAuthor.authorName}"/>
-            <td th:text="${tempAuthor.description}"/>
+            <td th:text="${tempAuthor.getAuthorId()}"/>
+            <td th:text="${tempAuthor.getPersonId()}"/>
             <td>
                 <div sec:authorize="hasAnyRole('USER', 'ADMIN')">
                 <!-- Add "update" button/link -->
-                <a th:href="@{/author/showFormForUpdate(authorId=${tempAuthor.id})}"
+                <a th:href="@{/author/showFormForUpdate(authorId=${tempAuthor.getAuthorId()})}"
                    class="btn btn-info btn-sm">
                     Update
                 </a>
                 </div>
                 <div sec:authorize="hasRole('ADMIN')">
                 <!-- Add "delete" button/link -->
-                <a th:href="@{/author/delete(authorId=${tempAuthor.id})}"
+                <a th:href="@{/author/delete(authorId=${tempAuthor.getAuthorId()})}"
                    class="btn btn-danger btn-sm"
                    onclick="if (!(confirm('Are you sure you want to delete this author?'))) return false">
                     Delete
