@@ -32,7 +32,7 @@ public class PersonServiceImpl implements PersonService{
         }
         else {
             // we didn't find the book
-            throw new RuntimeException("Did not find author id - " + theId);
+            throw new RuntimeException("Did not find person id - " + theId);
         }
         return thePerson;
     }

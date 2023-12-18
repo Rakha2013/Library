@@ -16,45 +16,92 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
+    private
     Integer id;
-    @Column(name = "PERSON_NAME")
-    String personName;
+    @Column(name = "FIRST_NAME")
+    private
+    String FirstName;
+    @Column(name = "MIDDLE_NAME")
+    private
+    String MiddleName;
+    @Column(name = "LAST_NAME")
+    private
+    String LastName;
+    @Column(name = "ADDRESS")
+    private
+    String Address;
+    @Column(name = "COUNTRY")
+    private
+    String Country;
+    @Column(name = "BIRTHDAY")
+    private
+    String Birthday;
+    @Column(name = "EMAIL")
+    private
+    String Email;
     @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "person",
             cascade = {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.MERGE,CascadeType.REFRESH})
+    private
     List<Book> booksList=new ArrayList<>();
 
     public void add(Book tempBook){
-        if (booksList==null){
-            booksList=new ArrayList<>();
+        if (getBooksList() ==null){
+            setBooksList(new ArrayList<>());
         }
         // this is bi-directional relationship
-        booksList.add(tempBook);
+        getBooksList().add(tempBook);
         tempBook.setPerson(this);
 
     }
-
+    public void setId(Integer id) {
+        this.id = id;
+    }
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setFirstName(String FirstName) {
+        this.FirstName = FirstName;
+    }
+    public String getFirstName() {
+        return FirstName;
+    }
+    public void setMiddleName(String MiddleName) {
+        this.MiddleName = MiddleName;
+    }
+    public String getMiddleName() {
+        return MiddleName;
+    }
+    public void setLastName(String LastName) {
+        this.LastName = LastName;
+    }
+    public String getLastName() {
+        return LastName;
+    }
+    public void setAddress(String Address) {
+        this.Address = Address;
+    }
+    public String getAddress() {
+        return Address;
     }
 
-    public String getPersonName() {
-        return personName;
+    public void setBirthday(String Birthday) {
+        this.Birthday = Birthday;
     }
-
-    public void setPersonName(String personName) {
-        this.personName = personName;
+    public String getBirthday() {
+        return Birthday;
     }
-
-    public List<Book> getBooksList() {
-        return booksList;
+    public void setCountry(String Country) {
+        this.Country = Country;
     }
-
-    public void setBooksList(List<Book> booksList) {
-        this.booksList = booksList;
+    public String getCountry() {
+        return Country;
+    }
+    public void setEmail(String Email) {
+        this.Email = Email;
+    }
+    public String getEmail() {
+        return Email;
     }
 }

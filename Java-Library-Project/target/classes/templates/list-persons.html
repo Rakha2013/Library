@@ -30,7 +30,12 @@
         <tbody>
         <tr th:each="tempPerson : ${persons}">
 
-            <td th:text="${tempPerson.personName}"/>
+            <td th:text="${tempPerson.getFirstName()}"/>
+            <td th:text="${tempPerson.getMiddleName()}"/>
+            <td th:text="${tempPerson.getLastName()}"/>
+            <td th:text="${tempPerson.getBirthday()}"/>
+            <td th:text="${tempPerson.getCountry()}"/>
+            <td th:text="${tempPerson.getEmail()}"/>
             <td>
                 <div sec:authorize="hasAnyRole('USER', 'ADMIN')">
                 <!-- Add "update" button/link -->

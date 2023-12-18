@@ -34,7 +34,7 @@ public class PersonController {
         // get author from db
         List<Person> thePerson = personService.findAll();
         // add to the spring model
-        theModel.addAttribute("authors", thePerson);
+        theModel.addAttribute("persons", thePerson);
         return "list-persons";
     }
 
@@ -42,7 +42,7 @@ public class PersonController {
     public String showFormForAdd(Model theModel) {
         // create model attribute to bind form data
         Person thePerson = new Person();
-        theModel.addAttribute("person", thePerson);
+        theModel.addAttribute("persons", thePerson);
         return "person-form";
     }
 
